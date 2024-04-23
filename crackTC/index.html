@@ -5,25 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crack the Code</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="clues-script.js" defer></script>
+    <script src="player-script.js" defer></script>
 </head>
 <body>
     
     <h1 id="mobile">Crack the Code</h1>
-    <aside id="instructions">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil maxime reprehenderit praesentium possimus, explicabo architecto qui doloribus, in, nobis facilis eius aspernatur ratione pariatur magni commodi molestias ab neque? Obcaecati!</aside>
+    <aside class="instructions" id="instructions" onclick="clickOut()">
+        <h2>Instructions</h2>
+
+        You will be given four clues to guess a three digit code.
+        Digits will not be repeated in the code.
+        There may be multiple correct solutions.
+        You can click on a box to change the digit you want to enter.
+    </aside>
     
-    <div class="puzzle-container">
+    <div class="puzzle-container" onclick="clickOut()">
         <h1 id="big-screen">Crack the Code</h1>
         <div class="clues">
-            <div id="clue1">This is clue 1</div>
-            <div id="clue2">This is clue 2</div>
-            <div id="clue3">This is clue 3</div>
-            <div id="clue4">This is clue 4</div>
+            <div id="clue1">
+                <p>000</p>
+                <p>One number is correct but wrongly placed</p>
+                </div>
+            <div id="clue2"><p>000</p>
+                <p>One number is correct and well placed</p></div>
+            <div id="clue3"><p>000</p>
+                <p>This is clue 3 </p></div>
+            <div id="clue4"><p>000</p>
+                <p>This is clue 4 </p></div>
         </div>
-        <div class="answer-inputs">
-            <input id="answer-box1" type="text" placeholder="X">
-            <input id="answer-box2" type="text" placeholder="X">
-            <input id="answer-box3" type="text" placeholder="X">
+        <div class="answer-inputs" id="answer-inputs">
+            <input class="answer-box" id="answer-box1" type="text" placeholder="X" onclick="setFocus(this, 1)" autofocus >
+            <input class="answer-box" id="answer-box2" type="text" placeholder="X" onclick="setFocus(this, 2)" >
+            <input class="answer-box" id="answer-box3" type="text" placeholder="X" onclick="setFocus(this, 3)" >
         </div>
         <div class="answer-buttons">
             <button class="number-button button" onclick="getInput(0)">0</button> 
@@ -38,7 +52,7 @@
             <button class="number-button button" onclick="getInput(9)">9</button>
         </div>
         <div class="submit-button-row">
-            <button id="submit-button" class="button" type="submit">submit</button>
+            <button id="submit-button" class="button" type="submit" onclick="submitAnswer()">submit</button>
         </div>
     </div>
 
