@@ -59,7 +59,7 @@ function submitAnswer(){
 
     for(var i = 0; i < ans.length; i++) {
     
-        if(ans[i].length == 0){
+        if(ans[0].length == 0 || ans[1].length == 0 || ans[2].length == 0){
             alert("You must input all three numbers");
             break;            
         }
