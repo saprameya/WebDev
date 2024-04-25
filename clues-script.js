@@ -19,6 +19,7 @@ var corrNotPlacedIndex2 = -1;
 var wellPlacedNum = -1;
 var corrNotPlacedNum1 = -1;
 var corrNotPlacedNum2 = -1;
+var allCluesString = "";
 
 // variables to get player's answer
 document.getElementsByClassName("answer-inputs");
@@ -26,7 +27,6 @@ document.getElementsByClassName("answer-inputs");
 answerBox1.value = null;
 answerBox2.value = null;
 answerBox3.value = null;
-
 load();
 
 function load(){
@@ -84,6 +84,7 @@ function generateWellPlacedClue(){
             nonExistingNums.add(wellPlClueArray[i]);
         }
     }
+    // saveClue(wellPlClueArray);
 
 }
 
@@ -132,6 +133,7 @@ function generateTwoCorrClue(){
     }
 
     twoCorrClueArray = clueArray;
+    // saveClue(twoCorrClueArray);
     
 }
 
@@ -214,6 +216,7 @@ function generateOneCorrClue(){
         }
     }
     oneCorrClueArray = clueArray;
+    // saveClue(oneCorrClueArray);
 }
    
 //Generate no correct clue
@@ -231,6 +234,7 @@ function generateNoCorrClue(){
         }
     }
     noCorrClueArr = clueArray;
+    // saveClue(noCorrClueArr);
 }
 
 // Set clues from randomly generated number sets
@@ -252,13 +256,13 @@ function setClues(){
     document.getElementById("clue3").innerHTML = clue3;    
     let clue4 = "<p>"+clueArray[3].clue +"</p><p>" + clueArray[3].message +"</p>";
     document.getElementById("clue4").innerHTML = clue4;
+
+
+            
+    allCluesString = '<div id="clue1">' + clue1 + '</div><div id="clue2">' +  clue2+ '</div><div id="clue3">' + clue3 + '</div><div id="clue4">' + clue4 + '</div>';
+
+       
 }
-
-
-
-
-
-
 
 
 // Shuffle arrays 
@@ -278,3 +282,74 @@ function shuffle(array){
     return shuffledArray;
 }
 
+function sharePuzzle(){
+    // saveClue(wellPlClueArray);
+    // saveClue(twoCorrClueArray);
+    // saveClue(oneCorrClueArray);
+    // saveClue(noCorrClueArr);
+    
+    saveClue(allCluesString);
+    // window.open("share-game-index.html", "_blank");
+    // Check if the browser supports the File System API
+    // Function to save data to a text file
+    
+}
+// else {
+//     console.log("File System API not supported.");
+//   }
+
+// }
+
+
+// function to store clues in text file
+function saveClue(clues){
+    
+
+    var blob = new Blob([clues], {type: 'text/plain'});
+    var url = window.URL.createObjectURL(blob);
+    
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.txt';
+    // Append the anchor element to the body
+    document.body.appendChild(a);
+
+    // Trigger a click event on the anchor element
+    a.click();
+
+    // Remove the anchor element from the DOM
+    document.body.removeChild(a);
+    a.click();
+    
+    // Save the data to a text file
+    saveDataToFile(clues);
+
+
+    // console.log(clue);
+    // const cluesArray = JSON.stringify(clue);
+    // localStorage.setItem(arrayOfCluesKey, cluesArray);
+    // window.location.href = "share-game-index.html";
+    
+    
+    // if(clue == wellPlClueArray){
+    //     const stringClue1 = JSON.stringify(clue);
+    //     localStorage.setItem(wpClueKey, stringClue1);
+        
+    // }
+
+    // if(clue == twoCorrClueArray){
+    //     const stringClue2 = JSON.stringify(clue);
+    //     localStorage.setItem(twoCorrClueKey, stringClue2);
+    // }
+
+    // if(clue == oneCorrClueArray){
+    //     const stringClue3 = JSON.stringify(clue);
+    //     localStorage.setItem(oneCorrCluKey, stringClue3);
+    // }
+
+    // if(clue == noCorrClueArr){
+    //     const stringClue4 = JSON.stringify(clue);
+    //     localStorage.setItem(noCorrClueKey, stringClue4);
+    // }
+
+}

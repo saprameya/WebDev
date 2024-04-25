@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="wholeDoc">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +13,9 @@
     <h1 id="mobile">Crack the Code</h1>
 
     
-    <div class="puzzle-container" onclick="clickOut()">
+    <div class="puzzle-container"  id="puzzle-container" onclick="clickOut()">
         <h1 id="big-screen">Crack the Code</h1>
-        <div class="clues">
+        <div class="clues" id="allClues">
             <div id="clue1">
                 <p>000</p>
                 <p>One number is correct but wrongly placed</p>
@@ -49,11 +49,10 @@
         </div>
         <aside class="instructions" id="instructions" onclick="clickOut()">
             <h2>Instructions</h2>
-    
-            You will be given four clues to guess a three digit code.
-            Digits will not be repeated in the code.
-            There may be multiple correct solutions.
-            You can click on a box to change the digit you want to enter.
+            <p>You will be given four clues to guess a three digit code. </p>
+            <p>Digits will not be repeated in the code. </p>
+            <p>There may be multiple correct solutions. </p>
+            <p>You can click on a box to change the digit you want to enter. </p>
         </aside>
     </div>
 

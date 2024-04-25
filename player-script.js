@@ -47,14 +47,12 @@ function clickOut(){
 }
 
 function submitAnswer(){
-    
     if(!gameOver){
         var ans = new Array();
         ans.push(document.getElementById("answer-box1").value);
         ans.push(document.getElementById("answer-box2").value);
         ans.push(document.getElementById("answer-box3").value);
         var ansCount = 0;
-          
     }
 
     for(var i = 0; i < ans.length; i++) {
@@ -88,6 +86,7 @@ function submitAnswer(){
             alert("Sorry you didn't crack the code.");
             // var popup = document.getElementById("popup-lost");
             // popup.classList.add("open-popupLost");
+            
         }
         else {
             // var popup = document.getElementById("popup-won");
@@ -102,10 +101,10 @@ function submitAnswer(){
 
 function checkAnswer(answer){
     gameWon = checkWellPlaced(answer);
+    
 
     if(gameWon){
         gameWon = checkTwoCorrect(answer);
-
         if(gameWon){
 
             gameWon = checkOneCorrect(answer);
@@ -113,7 +112,7 @@ function checkAnswer(answer){
                 gameWon = checkNoCorrect(answer);
             }
         }
-
+        
     }
     gameOver = true;
 }
